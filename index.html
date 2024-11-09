@@ -35,19 +35,7 @@
         <button type="submit" id="add-item">Adicionar item</button>
       </form>
 
-      <ul>
-        <li id="list-items" class="list-items">
-          <div class="item">
-            <input type="checkbox" />
-
-            <span id="item-text">Pão de forma</span>
-          </div>
-
-          <button class="delete-button">
-            <img src="./img/trashicon.svg" alt="" />
-          </button>
-        </li>
-      </ul>
+      <ul id="ul-container"></ul>
 
       <div id="delete-item" class="toast-wrapper">
         <p>O item foi removido da lista</p>
@@ -58,4 +46,14 @@
   </body>
 
   <script src="./shopping-list.js"></script>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+  />
+
+  <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/toastify-js"
+  ></script>
 </html>
