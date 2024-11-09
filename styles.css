@@ -109,7 +109,7 @@ body {
 }
 
 .list-items {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: space-between;
   width: 100%;
@@ -119,6 +119,10 @@ body {
   font-size: 1rem;
   transition: 0.3s all;
   margin-top: 2.5rem;
+}
+
+.list-items-visible {
+  display: flex;
 }
 
 .item {
@@ -152,7 +156,7 @@ input[type="checkbox"] {
 }
 
 .toast-wrapper {
-  display: flex;
+  display: none;
   justify-content: space-between;
   align-items: center;
   background-color: var(--color-danger);
@@ -165,6 +169,30 @@ input[type="checkbox"] {
   width: 100%;
   cursor: pointer;
   transition: 0.2s all;
+}
+
+.toast-wrapper-visible {
+  display: flex;
+}
+
+.toast-wrapper-visible {
+  display: flex;
+  animation: hideToast 5s forwards;
+}
+
+@keyframes hideToast {
+  0% {
+    display: flex;
+    opacity: 1;
+  }
+
+  99% {
+    opacity: 0;
+  }
+
+  100% {
+    display: none;
+  }
 }
 
 .toast-wrapper:hover {

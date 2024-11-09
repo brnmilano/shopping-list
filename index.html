@@ -25,17 +25,22 @@
     <section class="list-wrapper">
       <h1>Compras da semana</h1>
 
-      <div class="input-and-button">
-        <input type="text" placeholder="Adicione um novo item" />
-        <button>Adicionar item</button>
-      </div>
+      <form class="input-and-button">
+        <input
+          type="text"
+          id="input-add-item"
+          placeholder="Adicione um novo item"
+        />
+
+        <button type="submit" id="add-item">Adicionar item</button>
+      </form>
 
       <ul>
-        <li class="list-items">
+        <li id="list-items" class="list-items">
           <div class="item">
             <input type="checkbox" />
 
-            <span>Pão de forma</span>
+            <span id="item-text">Pão de forma</span>
           </div>
 
           <button class="delete-button">
@@ -44,10 +49,13 @@
         </li>
       </ul>
 
-      <div class="toast-wrapper">
+      <div id="delete-item" class="toast-wrapper">
         <p>O item foi removido da lista</p>
+
         <button class="close-button">X</button>
       </div>
     </section>
   </body>
+
+  <script src="./shopping-list.js"></script>
 </html>
