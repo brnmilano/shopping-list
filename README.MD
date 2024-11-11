@@ -13,6 +13,8 @@ Este é um projeto para adicionar itens a uma lista de compras de forma dinâmic
 
 Possibilida marcar o item e/ou deletar o item.
 
+[Layout utilizado](<https://www.figma.com/design/NKo1mIayevU8W7gDZiLI9b/Lista-de-compras-(Community)?node-id=3-376&node-type=canvas&t=XeOknso3YEOOtFcF-0>)
+
 ## 🚀 Tecnologias utilizadas
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
