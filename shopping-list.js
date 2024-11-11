@@ -1,7 +1,7 @@
 // Captura o nó do formulário
 const form = document.querySelector("form");
 // Captura o valor input
-const input = document.querySelector("#input-add-item").value;
+const input = document.querySelector("#input-add-item");
 // Captura o nó da ul
 const ulContainer = document.querySelector("#ul-container");
 // Captura a span com o nome do item na lista
@@ -12,8 +12,8 @@ const deleteItem = document.querySelector(".delete-button");
 // Cria um toast que é disparado caso o usuário tente adicionar um item sem value
 function toastMessage() {
   Toastify({
-    text: "Essa é uma notificação Toastify!",
-    duration: 3000,
+    text: "Item removido da lista!",
+    duration: 2000,
     gravity: "bottom", // Posição: "top" ou "bottom"
     position: "center", // Posição: "left", "center" ou "right"
     style: {
@@ -34,15 +34,32 @@ const removeItem = (item) => {
   itemsArray.shift(item);
 };
 
+// Marca o item se o checkbox for clicado
+const markedItem = (hasMarked, liClass) => {
+  hasMarked.addEventListener("change", function () {
+    if (this.checked) {
+      console.log("selecionado");
+
+      liClass.classList.toggle("item-marked");
+    } else {
+      console.log("não selecionado");
+
+      liClass.classList.toggle("item-not-marked");
+    }
+  });
+};
+
 // Cria um novo li na DOM com o elemento que foi criado
 const createNewElements = () => {
-  const li = document.createElement("li");
-  li.classList.add("list-items");
+  ulContainer.innerHTML = ""; // Limpa a lista antes de recriar os elementos
 
   itemsArray.map((item) => {
+    const li = document.createElement("li");
+    li.classList.add("list-items");
+
     li.innerHTML = `
       <div class="item">
-        <input type="checkbox" />
+        <input name="checkbox" id="checkbox" type="checkbox" />
 
         <span id="item-text">${item}</span>
       </div>
@@ -53,20 +70,31 @@ const createNewElements = () => {
     `;
 
     ulContainer.append(li);
+
+    const checkbox = document.querySelector("input[name=checkbox]");
+    const liClass = document.querySelector(".list-items");
+
+    markedItem(checkbox, liClass);
   });
 
-  // const deleteButton = li.querySelector(".delete-button");
-  // const itemInSpan = li.querySelector("#item-text").innerText;
+  // remove o item de acordo com o botão de deletar que foi clicado
+  document.querySelectorAll(".delete-button").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const index = event.target.closest("button").dataset.index;
 
-  // console.log(deleteButton);
+      removeItem(index);
 
-  // deleteButton.addEventListener("click", () => {
-  //   removeItem(itemInSpan);
-  // });
+      createNewElements();
+
+      toastMessage();
+    });
+  });
 };
 
 form.onsubmit = async (event) => {
   event.preventDefault();
+
+  const inputValue = input.value;
 
   if (input.length === 0) {
     toastMessage();

@@ -121,6 +121,14 @@ body {
   margin-top: 1.0rem;
 }
 
+.item-marked {
+  text-decoration: line-through;
+}
+
+.item-not-marked {
+  text-decoration: none;
+}
+
 .list-items:first-child {
   margin-top: 2.0rem;
 }
@@ -155,53 +163,6 @@ input[type="checkbox"] {
   transition: 0.3s all;
 }
 
-.toast-wrapper {
-  display: none;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--color-danger);
-  padding: 0.7rem 1rem;
-  color: var(--always-white);
-  border-radius: .75rem;
-  font-weight: bold;
-  position: absolute;
-  bottom: -6.25rem;
-  width: 100%;
-  cursor: pointer;
-  transition: 0.2s all;
-}
-
-.toast-wrapper-visible {
-  display: flex;
-}
-
-.toast-wrapper-visible {
-  display: flex;
-  animation: hideToast 5s forwards;
-}
-
-@keyframes hideToast {
-  0% {
-    display: flex;
-    opacity: 1;
-  }
-
-  99% {
-    opacity: 0;
-  }
-
-  100% {
-    display: none;
-  }
-}
-
 .toast-wrapper:hover {
   background-color: var(--color-brand-hover);
-}
-
-.close-button {
-  background-color: transparent;
-  border: none;
-  color: var(--always-white);
-  font-size: 1rem;
 }
