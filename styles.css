@@ -166,3 +166,18 @@ input[type="checkbox"] {
 .toast-wrapper:hover {
   background-color: var(--color-brand-hover);
 }
+
+@media (max-width: 425px) {
+  .list-wrapper h1 {
+    font-size: 1.7rem;
+  }
+
+  .input-and-button {
+    flex-direction: column;
+  }
+
+  .input-and-button button {
+    width: 100%;
+    padding: 0.7rem 1rem;
+  }
+}
